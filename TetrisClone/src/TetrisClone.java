@@ -160,12 +160,12 @@ public class TetrisClone extends JPanel {
 	public void fixToWell() {
 
 		for (Point p : Tetraminos[currentPiece][rotation]) {
+			if(pieceOrigin.y + p.y == 0 ) {
+				status = false;
+			}
 			well[pieceOrigin.x + p.x][pieceOrigin.y + p.y] = tetraminoColors[currentPiece];
 		}
 		clearRows();
-		if(pieceOrigin.y  == 0) {
-            this.status = false;
-        }
 
 		newPiece();
 	}
@@ -239,6 +239,9 @@ public class TetrisClone extends JPanel {
 
 		// Display the score
 		g.setColor(Color.WHITE);
+		if(status == false) {
+			g.drawString("stopped", 19*12, 35);
+		}
 		g.drawString("" + score, 19*12, 25);
 
 		// Draw the currently falling piece
@@ -256,7 +259,7 @@ public class TetrisClone extends JPanel {
 		f.add(game);
 
 		// Keyboard controls
-		f.addKeyListener(new KeyListener() {
+		KeyListener ky = new KeyListener() {
 			public void keyTyped(KeyEvent e) {
 			}
 
@@ -274,23 +277,32 @@ public class TetrisClone extends JPanel {
 				case KeyEvent.VK_RIGHT:
 					game.move(+1);
 					break;
-				/*case KeyEvent.VK_SPACE:
+				case KeyEvent.VK_SPACE:
 					game.dropDown();
-					game.score += 1;
-					break;*/
+					if(game.status) {
+						game.score += 1;
+					}
+					break;
 				}
 			}
 
+
 			public void keyReleased(KeyEvent e) {
 			}
-		});
+		};
+		f.addKeyListener(ky);
+		/*if(!game.status) {
+			f.removeKeyListener(ky);
+		}*/
+
 
 		// Make the falling piece drop every second
 		new Thread() {
 			@Override public void run() {
+
 				while (game.getStatus()) {
 					try {
-						Thread.sleep(50);
+						Thread.sleep(500);
 						game.dropDown();
 					} catch ( InterruptedException e ) {}
 				}
