@@ -83,7 +83,7 @@ public class TetrisClone extends JPanel {
 
 	private long score;
 	private Color[][] well;
-
+	public int [][] NETWORK_INPUT;
 	public boolean getStatus() {
         return this.status;
     }
