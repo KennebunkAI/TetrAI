@@ -1,18 +1,26 @@
+import java.awt.Color;
+
 public class FetchInput {
+    private Color[][] well;
+    private boolean value[][];
+    private int i, j;
 
-    private int well[][];
-   private boolean value[][];
-   private int i, j, i2, j2;
-
-    FetchInput(int well[][], boolean value[][], int i, int j, int i2, int j2) {
+    FetchInput(Color[][] well, boolean value[][], int i, int j) {
         this.well = well;
         this.value = value;
         this.i = i;
         this.j = j;
-        this.i2 = i2;
-        this.j2 = j2;
 
-        for(i = 0; i <)
+        well = new Color[12][24];
+        for(i = 0; i < 12; i++) {
+            for (j = 0; j < 23; j++) {
+                if (well[i][j] == Color.BLACK) {
+                    value[i][j] = false;
+                } else {
+                   value[i][j] = true;
+                }
+            }
+        }
 
 
 
