@@ -1,10 +1,10 @@
-public class SumActFunction {
+public class FetchInput {
 
     private int well[][];
    private boolean value[][];
    private int i, j, i2, j2;
 
-    SumActFunction(int well[][], boolean value[][], int i, int j, int i2, int j2) {
+    FetchInput(int well[][], boolean value[][], int i, int j, int i2, int j2) {
         this.well = well;
         this.value = value;
         this.i = i;
