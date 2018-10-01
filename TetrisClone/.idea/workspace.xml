@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eae26e5e-a002-4c1e-9d12-f7a3c6b7b670" name="Default" comment="added blocks and colors">
-      <change afterPath="$PROJECT_DIR$/src/main/java/EstablishWeights.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FetchInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FetchInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Node.java" afterDir="false" />
-    </list>
+    <list default="true" id="eae26e5e-a002-4c1e-9d12-f7a3c6b7b670" name="Default" comment="added blocks and colors" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/NNTertis/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,7 +59,7 @@
     <session id="-995505978">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.opened" value="2" />
@@ -102,10 +95,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/TetrisClone.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="738">
-              <caret line="249" column="21" lean-forward="true" selection-start-line="230" selection-start-column="4" selection-end-line="249" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="246" column="28" lean-forward="true" selection-start-line="246" selection-start-column="26" selection-end-line="246" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -126,8 +116,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/FetchInput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="374">
+              <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -223,8 +213,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="953" />
+    <option name="y" value="54" />
     <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="height" value="993" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -266,7 +257,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538410555597" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538410556800" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -358,7 +349,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.38074398" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -423,10 +413,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/TetrisClone.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="738">
-          <caret line="249" column="21" lean-forward="true" selection-start-line="230" selection-start-column="4" selection-end-line="249" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="246" column="28" lean-forward="true" selection-start-line="246" selection-start-column="26" selection-end-line="246" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -484,8 +471,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FetchInput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="11" selection-end-column="19" />
+        <state relative-caret-position="374">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
         </state>
       </provider>
     </entry>
