@@ -1,15 +1,9 @@
-package main.java;
-
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Point;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Collections;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class TetrisClone extends JPanel {
 
@@ -74,7 +68,7 @@ public class TetrisClone extends JPanel {
     };
 
     private final Color[] tetraminoColors = {
-            Color.cyan, Color.blue, Color.orange, Color.yellow, Color.green, Color.pink, Color.red
+            Color.cyan, Color.blue, Color.orange, Color.yellow, Color.green, Color.magenta, Color.red
     };
 
     private boolean status = true;
@@ -228,26 +222,29 @@ public class TetrisClone extends JPanel {
     }
 
     @Override
-    public void paintComponent(Graphics g)
-    {
+    public void paintComponent(Graphics g) {
         // Paint the well
-        g.fillRect(0, 0, 26*12, 26*23);
+
+        g.fillRect(0, 0, 26 * 12, 26 * 23);
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 23; j++) {
                 g.setColor(well[i][j]);
-                g.fillRect(26*i, 26*j, 25, 25);
+                g.fillRect(26 * i, 26 * j, 25, 25);
             }
         }
 
         // Display the score
         g.setColor(Color.WHITE);
-        if(status == false) {
-            g.drawString("stopped", 19*12, 35);
+        if (status == false) {
+            g.drawString("stopped", 19 * 12, 35);
         }
-        g.drawString("" + score, 19*12, 25);
+        g.drawString("" + score, 19 * 12, 25);
 
         // Draw the currently falling piece
         drawPiece(g);
+        // Goes through and checks color of well after being drawn
+        FetchInput input = new FetchInput(well);
+        input.ColorOutput();
     }
 
     public static void main(String[] args) {
