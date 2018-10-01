@@ -13,11 +13,10 @@ public class Network {
         this.nIn = nIn;
         this.nOut = nOut;
         this.hiddenLayers = hiddenLayers;
+
         layers = new Layer[hiddenLayers];
-
-        inputLayer = new Layer(nIn, layers[0].getnIn(), nIn);
-
-        outputLayer = new Layer(layers[layers.length-1].getnIn(), nOut , nOut);
+        inputLayer = new Layer(nIn, layers[0].getnIn(), nIn); //intput = input of network, output = input of next layer
+        outputLayer = new Layer(layers[layers.length-1].getnOut(), nOut , nOut); //input = output of previous layer, output = output of network
     }
 
     public double getOutput() {

@@ -1,12 +1,12 @@
 import java.awt.Color;
 
-public class FetchInput {
+class FetchInput {
     private Color[][] well;
     private boolean value[][];
     private int i, j;
 
-    FetchInput(Color[][] well, boolean value[][], int i, int j) {
-        this.well = well;
+    public static FetchInput(Color[][] well, boolean value[][], int i, int j) {
+        well = well;
         this.value = value;
         this.i = i;
         this.j = j;
