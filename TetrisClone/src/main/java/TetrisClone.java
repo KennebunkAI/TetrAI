@@ -242,9 +242,8 @@ public class TetrisClone extends JPanel {
 
         // Draw the currently falling piece
         drawPiece(g);
-        // Goes through and checks color of well after being drawn
-        FetchInput input = new FetchInput(well);
-        input.ColorOutput();
+        // static method that returns value []
+        FetchInput.colorOuput();
     }
 
     public static void main(String[] args) {
