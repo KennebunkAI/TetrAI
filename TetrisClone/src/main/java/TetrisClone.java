@@ -243,7 +243,7 @@ public class TetrisClone extends JPanel {
         // Draw the currently falling piece
         drawPiece(g);
         // static method that returns value []
-        FetchInput.colorOuput();
+        FetchInput.colorOuput(well);
     }
 
     public static void main(String[] args) {

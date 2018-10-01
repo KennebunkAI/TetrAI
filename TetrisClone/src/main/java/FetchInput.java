@@ -1,18 +1,15 @@
 import java.awt.Color;
 
 class FetchInput {
-    private static Color[][] well;
-    private static boolean value[][];
+    private static boolean value[][] = new boolean[12][24];
 
-    FetchInput(Color[][] wells, boolean[][] values) {
-        well = wells;
-        value = values;
+    FetchInput() {
+
     }
 
-        public static boolean[][] colorOuput() {
-            well = new Color[12][24];
+        public static boolean[][] colorOuput(Color[][] well) {
             for (int i = 0; i < 12; i++) {
-                for (int j = 0; j < 23; j++) {
+                for (int j = 0; j < 24; j++) {
                     if (well[i][j] == Color.BLACK) {
                         value[i][j] = false;
                     } else {
