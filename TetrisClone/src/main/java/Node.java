@@ -1,12 +1,18 @@
 public class Node {
-    private int[] nIn;
+    private int nIn;
     private int nOut;
+    public Weight[] weights;
 
-    Node() {
-
+    Node(int nIn, int nOut) {
+        this.nIn = nIn;
+        this.nOut = nOut;
+        weights = new Weight[nIn];
     }
 
     public void fetchnIn(int[] values) {
 
     }
+
+
 }
+

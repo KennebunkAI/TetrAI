@@ -11,8 +11,12 @@ public class Layer {
         this.numNodes = numNodes;
         nodes = new Node[numNodes];
         for(int x = 0; x < numNodes; x++) {
-            nodes[x] = new Node();
+            //nodes[x] = new Node();
         }
+    }
+
+    public Node[] getNodes() {
+        return nodes;
     }
 
     public int getnIn() {
