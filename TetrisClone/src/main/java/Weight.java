@@ -8,5 +8,8 @@ public class Weight {
             inputNode = node;
         }
 
+    public double getNodeValue() {
+        return nodeValue;
+    }
 }
 

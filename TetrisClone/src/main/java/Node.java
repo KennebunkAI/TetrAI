@@ -9,8 +9,8 @@ public class Node {
         weights = new Weight[nIn];
     }
 
-    public void fetchnIn(int[] values) {
-
+    public double calcOutput(double[] input) {
+        return .01;
     }
 
 
