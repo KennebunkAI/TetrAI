@@ -10,8 +10,11 @@ public class Node {
     }
 
     public double calcOutput(double[] input) {
-        return .01;
+        double sumOut = Summation.sum(input, weights);
+        double out = Activation.activate(sumOut);
+        return out;
     }
+
 
 
 }
