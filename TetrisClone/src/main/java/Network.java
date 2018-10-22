@@ -1,7 +1,5 @@
 //This class houses the neural network
-
 import java.util.Random;
-
 public class Network {
     //hyperparameters
     private int nIn;
@@ -22,19 +20,29 @@ public class Network {
         outputLayer = new Layer(layers[layers.length-1].getnOut(), nOut , nOut); //input = output of previous layer, output = output of network
 
 
-        EstablishWeights(inputLayer);
-        EstablishWeights(inputLayer, layers[0]);
-        EstablishWeights(layers[0], outputLayer);
+        EstablishWeights(layers, inputLayer, outputLayer);
 
     }
 
-    public void EstablishWeights(Layer lIn, Layer lOut) {
+    public void EstablishWeights(Layer[] hiddenLs, Layer InputL, Layer OutputL) {
         Random r = new Random();
-        for(Node i: lIn.getNodes()) {
-            int x = 0;
-            for(Node c: lOut.getNodes()) {
-                i.weights[x] = new Weight(r.nextDouble(),c);
-                x++;
+        for(Node I: inputLayer.nodes) {
+            for(Weight Wi: I.weights) {
+                Wi = new Weight(1);
+            }
+        }
+
+        for(Layer l: hiddenLs) {
+            for(Node Ih: inputLayer.nodes) {
+                for(Weight Wh: Ih.weights) {
+                    Wh = new Weight(r.nextDouble());
+                }
+            }
+        }
+
+        for(Node Io: outputLayer.nodes) {
+            for(Weight Wo: Io.weights) {
+                Wo = new Weight(r.nextDouble());
             }
         }
     }
@@ -43,19 +51,20 @@ public class Network {
 
         for(Node i: lIn.getNodes()) {
             int x = 0;
-                i.weights[x] = new Weight(1, i);
+                i.weights[x] = new Weight(1);
         }
     }
 
     public double getOutput(int[][] values) {
         //converting 2d array to single array
-        double[] input = new double[292];
+        double[] input = new double[288];
         int count = 0;
         for(int x = 0 ; x < values.length; x ++) {
             for(int y = 0; y < values[0].length; y++) {
                 input[count] = values[x][y];
             }
         }
+        System.out.println(input[1]);
 
         inputLayer.fetchLayerIn(input);
         layers[0].fetchLayerIn(inputLayer.calcOutput());

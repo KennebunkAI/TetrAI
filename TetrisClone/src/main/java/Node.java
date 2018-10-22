@@ -1,7 +1,7 @@
 public class Node {
     private int nIn;
     private int nOut;
-    public Weight[] weights;
+        public Weight[] weights;
 
     Node(int nIn, int nOut) {
         this.nIn = nIn;
@@ -14,8 +14,6 @@ public class Node {
         double out = Activation.activate(sumOut);
         return out;
     }
-
-
 
 }
 

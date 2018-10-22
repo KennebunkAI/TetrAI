@@ -7,6 +7,7 @@ import java.util.Collections;
 
 public class TetrisClone extends JPanel {
     Network net = new Network(288,5,1);
+    int value = 0;
     private static final long serialVersionUID = -8715353373678321308L;
 
     private final Point[][][] Tetraminos = {
@@ -239,7 +240,7 @@ public class TetrisClone extends JPanel {
             g.drawString("stopped", 19 * 12, 35);
         }
         g.drawString("" + score, 19 * 12, 25);
-        g.drawString("" + net.getOutput(FetchInput.colorOuput(well)), 19 * 12, 45);
+        g.drawString("" + value, 19 * 12, 45);
 
         // Draw the currently falling piece
         drawPiece(g);

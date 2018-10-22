@@ -3,7 +3,7 @@ public class Layer {
     private int nIn;
     private int nOut;
     private int numNodes;
-    private Node[] nodes;
+    public Node[] nodes;
     private double[] input;
     double[] output;
 

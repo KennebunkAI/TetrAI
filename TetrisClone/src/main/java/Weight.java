@@ -1,11 +1,9 @@
 public class Weight {
 
     private double nodeValue;
-    private Node inputNode;
 
-    Weight(double val, Node node) {
+    Weight(double val) {
             nodeValue = val;
-            inputNode = node;
         }
 
     public double getNodeValue() {
