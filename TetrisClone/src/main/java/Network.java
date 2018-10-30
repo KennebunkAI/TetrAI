@@ -15,9 +15,9 @@ public class Network {
         this.hiddenLayers = hiddenLayers;
 
         layers = new Layer[hiddenLayers];
-        inputLayer = new Layer(nIn, nIn, nIn); //intput = input of network, output = input of next layer
+        inputLayer = new Layer(nIn, 200, nIn); //intput = input of network, output = input of next layer
         layers[0] = new Layer(nIn, nOut, 200);
-        outputLayer = new Layer(layers[layers.length-1].getnOut(), nOut , nOut); //input = output of previous layer, output = output of network
+        outputLayer = new Layer(200, nOut , nOut); //input = output of previous layer, output = output of network
 
 
         EstablishWeights(layers, inputLayer, outputLayer);
@@ -26,23 +26,23 @@ public class Network {
 
     public void EstablishWeights(Layer[] hiddenLs, Layer InputL, Layer OutputL) {
         Random r = new Random();
-        for(Node I: inputLayer.nodes) {
-            for(Weight Wi: I.weights) {
-                Wi = new Weight(1);
+        for(int x = 0; x < inputLayer.nodes.length; x++) {
+            for(int y = 0; y < inputLayer.nodes[x].weights.length; y++) {
+                inputLayer.nodes[x].weights[y] = new Weight(1);
             }
         }
 
-        for(Layer l: hiddenLs) {
-            for(Node Ih: inputLayer.nodes) {
-                for(Weight Wh: Ih.weights) {
-                    Wh = new Weight(r.nextDouble());
+        for(int z = 0; z < hiddenLs.length; z++) {
+            for(int t = 0; t < hiddenLs[z].nodes.length; t++) {
+                for(int j = 0; j <hiddenLs[z].nodes[t].weights.length; j++) {
+                    hiddenLs[z].nodes[t].weights[j] = new Weight(r.nextDouble());
                 }
             }
         }
 
-        for(Node Io: outputLayer.nodes) {
-            for(Weight Wo: Io.weights) {
-                Wo = new Weight(r.nextDouble());
+        for(int g = 0; g < outputLayer.nodes.length; g++) {
+            for(int h = 0; h <  outputLayer.nodes[g].weights.length; h++) {
+                outputLayer.nodes[g].weights[h] = new Weight(r.nextDouble());
             }
         }
     }
@@ -55,7 +55,7 @@ public class Network {
         }
     }
 
-    public double getOutput(int[][] values) {
+    public double[] getOutput(int[][] values) {
         //converting 2d array to single array
         double[] input = new double[288];
         int count = 0;
@@ -64,7 +64,6 @@ public class Network {
                 input[count] = values[x][y];
             }
         }
-        System.out.println(input[1]);
 
         inputLayer.fetchLayerIn(input);
         layers[0].fetchLayerIn(inputLayer.calcOutput());
@@ -81,7 +80,7 @@ public class Network {
         }
 
 
-        return outputIndex;
+        return out;
     }
 
 }

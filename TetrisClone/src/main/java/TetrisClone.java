@@ -7,8 +7,10 @@ import java.util.Collections;
 
 public class TetrisClone extends JPanel {
     Network net = new Network(288,5,1);
-    int value = 0;
+    double value = 0;
     private static final long serialVersionUID = -8715353373678321308L;
+
+
 
     private final Point[][][] Tetraminos = {
             // I-Piece
@@ -303,7 +305,9 @@ public class TetrisClone extends JPanel {
 
                 while (game.getStatus()) {
                     try {
-                        Thread.sleep(500);
+                        double[] d = game.net.getOutput(FetchInput.colorOuput(game.well));
+                        System.out.println(d[0] + ", " + d[1] + ", " + d[2] + ", " + d[3] + ", " + d[4]);
+                        Thread.sleep(200);
                         game.dropDown();
                     } catch ( InterruptedException e ) {}
                 }
