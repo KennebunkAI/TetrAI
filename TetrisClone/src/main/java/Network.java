@@ -1,7 +1,9 @@
 //This class houses the neural network
+import java.util.Arrays;
 import java.util.Random;
 public class Network {
     //hyperparameters
+    private int numHNodes = 10;
     private int nIn;
     private int nOut;
     private int hiddenLayers;
@@ -15,9 +17,9 @@ public class Network {
         this.hiddenLayers = hiddenLayers;
 
         layers = new Layer[hiddenLayers];
-        inputLayer = new Layer(nIn, 200, nIn); //intput = input of network, output = input of next layer
-        layers[0] = new Layer(nIn, nOut, 200);
-        outputLayer = new Layer(200, nOut , nOut); //input = output of previous layer, output = output of network
+        inputLayer = new Layer(nIn, numHNodes, nIn); //intput = input of network, output = input of next layer
+        layers[0] = new Layer(nIn, nOut, numHNodes);
+        outputLayer = new Layer(numHNodes, nOut , nOut); //input = output of previous layer, output = output of network
 
 
         EstablishWeights(layers, inputLayer, outputLayer);
@@ -28,21 +30,21 @@ public class Network {
         Random r = new Random();
         for(int x = 0; x < inputLayer.nodes.length; x++) {
             for(int y = 0; y < inputLayer.nodes[x].weights.length; y++) {
-                inputLayer.nodes[x].weights[y] = new Weight(1);
+                inputLayer.nodes[x].weights[y] = new Weight(1/inputLayer.nodes.length);
             }
         }
 
         for(int z = 0; z < hiddenLs.length; z++) {
             for(int t = 0; t < hiddenLs[z].nodes.length; t++) {
                 for(int j = 0; j <hiddenLs[z].nodes[t].weights.length; j++) {
-                    hiddenLs[z].nodes[t].weights[j] = new Weight(r.nextDouble());
+                    hiddenLs[z].nodes[t].weights[j] = new Weight(r.nextDouble()/hiddenLs[z].nodes.length);
                 }
             }
         }
 
         for(int g = 0; g < outputLayer.nodes.length; g++) {
             for(int h = 0; h <  outputLayer.nodes[g].weights.length; h++) {
-                outputLayer.nodes[g].weights[h] = new Weight(r.nextDouble());
+                outputLayer.nodes[g].weights[h] = new Weight(r.nextDouble()/outputLayer.nodes.length);
             }
         }
     }
@@ -55,17 +57,19 @@ public class Network {
         }
     }
 
-    public double[] getOutput(int[][] values) {
+    public double getOutput(int[][] values) {
         //converting 2d array to single array
         double[] input = new double[288];
         int count = 0;
         for(int x = 0 ; x < values.length; x ++) {
-            for(int y = 0; y < values[0].length; y++) {
+            for(int y = 0; y < values[x].length; y++) {
                 input[count] = values[x][y];
+                count++;
             }
         }
 
         inputLayer.fetchLayerIn(input);
+        //System.out.println(Arrays.toString(input));
         layers[0].fetchLayerIn(inputLayer.calcOutput());
         outputLayer.fetchLayerIn(layers[0].calcOutput());
 
@@ -79,8 +83,8 @@ public class Network {
             }
         }
 
-
-        return out;
+        System.out.println(Arrays.toString(out));
+        return outputIndex;
     }
 
 }
