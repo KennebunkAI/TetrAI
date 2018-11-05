@@ -10,9 +10,9 @@ public class Node {
     }
 
     public double calcOutput(double[] input) {
-        double sumOut = Summation.sum(input, weights);
-        double out = Activation.activate(sumOut);
-        return out;
+        double Out = Summation.sum(input, weights);
+        double Output = Activation.activate(Out);
+        return Output;
     }
 
 }

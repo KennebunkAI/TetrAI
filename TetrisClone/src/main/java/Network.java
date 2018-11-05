@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Random;
 public class Network {
     //hyperparameters
-    private int numHNodes = 10;
+    private int numHNodes = 200;
     private int nIn;
     private int nOut;
     private int hiddenLayers;
@@ -69,8 +69,8 @@ public class Network {
         }
 
         inputLayer.fetchLayerIn(input);
-        //System.out.println(Arrays.toString(input));
         layers[0].fetchLayerIn(inputLayer.calcOutput());
+        System.out.println(Arrays.toString(layers[0].calcOutput()));
         outputLayer.fetchLayerIn(layers[0].calcOutput());
 
         double[] out = outputLayer.calcOutput();
@@ -82,9 +82,7 @@ public class Network {
                 outputIndex = v;
             }
         }
-
-        System.out.println(Arrays.toString(out));
-        return outputIndex;
+        return out[outputIndex];
     }
 
 }

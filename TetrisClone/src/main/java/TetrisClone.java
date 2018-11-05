@@ -306,8 +306,7 @@ public class TetrisClone extends JPanel {
                 while (game.getStatus()) {
                     try {
                         game.value = game.net.getOutput(FetchInput.colorOuput(game.well));
-                        //System.out.println(d[0] + ", " + d[1] + ", " + d[2] + ", " + d[3] + ", " + d[4]);
-                        Thread.sleep(200);
+                        Thread.sleep(2000);
                         game.dropDown();
                     } catch ( InterruptedException e ) {}
                 }
