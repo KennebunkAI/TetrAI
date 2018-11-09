@@ -25,30 +25,30 @@ public class Network {
         EstablishWeights(layers, inputLayer, outputLayer);
 
     }
-
+    //random establishment for 1st generation
     public void EstablishWeights(Layer[] hiddenLs, Layer InputL, Layer OutputL) {
         Random r = new Random();
         for(int x = 0; x < inputLayer.nodes.length; x++) {
             for(int y = 0; y < inputLayer.nodes[x].weights.length; y++) {
-                inputLayer.nodes[x].weights[y] = new Weight(1/inputLayer.nodes.length);
+                inputLayer.nodes[x].weights[y] = new Weight(r.nextDouble()/numHNodes);
             }
         }
 
         for(int z = 0; z < hiddenLs.length; z++) {
             for(int t = 0; t < hiddenLs[z].nodes.length; t++) {
                 for(int j = 0; j <hiddenLs[z].nodes[t].weights.length; j++) {
-                    hiddenLs[z].nodes[t].weights[j] = new Weight(r.nextDouble()/hiddenLs[z].nodes.length);
+                    hiddenLs[z].nodes[t].weights[j] = new Weight(r.nextDouble()/numHNodes);
                 }
             }
         }
 
         for(int g = 0; g < outputLayer.nodes.length; g++) {
             for(int h = 0; h <  outputLayer.nodes[g].weights.length; h++) {
-                outputLayer.nodes[g].weights[h] = new Weight(r.nextDouble()/outputLayer.nodes.length);
+                outputLayer.nodes[g].weights[h] = new Weight(r.nextDouble()/numHNodes);
             }
         }
     }
-
+    //overloaded func, uses pre existing weights
     public void EstablishWeights(Layer lIn) {
 
         for(Node i: lIn.getNodes()) {
@@ -67,12 +67,12 @@ public class Network {
                 count++;
             }
         }
-
+        //calcing network output
         inputLayer.fetchLayerIn(input);
         layers[0].fetchLayerIn(inputLayer.calcOutput());
-        System.out.println(Arrays.toString(layers[0].calcOutput()));
+        System.out.println(Arrays.toString(inputLayer.calcOutput()));
         outputLayer.fetchLayerIn(layers[0].calcOutput());
-
+        //finding max
         double[] out = outputLayer.calcOutput();
         double output = 0;
         int outputIndex = 0;
